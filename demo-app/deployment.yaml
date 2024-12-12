@@ -1,4 +1,4 @@
-apiVersion: apps/v2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: demo-app
@@ -16,7 +16,9 @@ spec:
     spec:
       containers:
         - name: demo-app
-          image: docker.io/duy290410/devops:003
+          image: docker.io/duy290410/tmc:001
           port : 
             - containerPort : 8888
-          imagePullPolicy: Always      
+          imagePullPolicy: Always   
+          imagePullSecrets:
+          - name: tmc-secret   
