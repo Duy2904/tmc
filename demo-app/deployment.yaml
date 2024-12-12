@@ -1,0 +1,22 @@
+apiVersion: apps/v2
+kind: Deployment
+metadata:
+  name: demo-app
+  labels:
+    app: demo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-app
+  template:
+    metadata:
+      labels:
+        app: demo-app
+    spec:
+      containers:
+        - name: demo-app
+          image: docker.io/duy290410/devops:003
+          port : 
+            - containerPort : 8888
+          imagePullPolicy: Always      
