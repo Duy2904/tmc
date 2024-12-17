@@ -22,4 +22,4 @@ spec:
             - containerPort : 8888
           imagePullPolicy: Always   
           imagePullSecrets:
-          - name: tripota-acr-secret   
+          - name: duy-acr-secret   
