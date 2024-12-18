@@ -16,10 +16,10 @@ spec:
     spec:
       containers:
         - name: demo-app
-          #image: docker.io/duy290410/tmc:001
-          image: tripotadevacr.azurecr.io/apihub-frontend-react:15491
+          image: docker.io/duy290410/tmc:001
+          #image: tripotadevacr.azurecr.io/apihub-frontend-react:15491
           port : 
             - containerPort : 8888
           imagePullPolicy: Always   
           imagePullSecrets:
-          - name: tripota-acr-secret   
+          - name: duy-acr-secret   
