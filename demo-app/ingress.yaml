@@ -23,4 +23,4 @@ spec:
   tls:
   - hosts:
     - duy.com
-    secretName: docker-app-tls
+    secretName: demo-app-tls
