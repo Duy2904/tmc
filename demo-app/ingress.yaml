@@ -5,8 +5,8 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-production
     kubernetes.io/ingress.class: traefik
   labels:
-    app: demo-app
-  name: demo-app
+    app: docker-app
+  name: docker-app
   #namespace: master
 spec:
   rules:
@@ -15,7 +15,7 @@ spec:
       paths:
       - backend:
           service:
-            name: demo-app-svc
+            name: docker-app-svc
             port: 
               number: 80
         path: /
@@ -23,4 +23,4 @@ spec:
   tls:
   - hosts:
     - duy.com
-    secretName: demo-app-tls
+    secretName: docker-app-tls
