@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-app
+  name: docker-app
   labels:
-    app: demo-app
+    app: docker-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: demo-app
+      app: docker-app
   template:
     metadata:
       labels:
-        app: demo-app
+        app: docker-app
     spec:
       containers:
-        - name: demo-app
-          #image: docker.io/duy290410/tmc:001
-          image: tripotadevacr.azurecr.io/apihub-frontend-react:15491
+        - name: docker-app
+          image: docker.io/duy290410/tmc:001
+          #image: tripotadevacr.azurecr.io/apihub-frontend-react:15491
           port : 
             - containerPort : 8888
           imagePullPolicy: Always   
       imagePullSecrets:
-        - name: tripota-acr-secret   
+        - name: dockerhub-acr-secret   
