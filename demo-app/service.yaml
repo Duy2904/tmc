@@ -5,7 +5,7 @@ metadata:
   #namespace: master
 spec:
   selector:
-    app: demo-app
+    app: docker-app
   ports:
     - name: http
       protocol: TCP
