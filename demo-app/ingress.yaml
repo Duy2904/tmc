@@ -1,26 +1,26 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-production
-    kubernetes.io/ingress.class: traefik
-  labels:
-    app: docker-app
-  name: docker-app
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  annotations:
+#    cert-manager.io/cluster-issuer: letsencrypt-production
+#   kubernetes.io/ingress.class: traefik
+#  labels:
+#    app: docker-app
+#  name: docker-app
   #namespace: master
-spec:
-  rules:
-  - host: duy.com
-    http:
-      paths:
-      - backend:
-          service:
-            name: docker-app-svc
-            port: 
-              number: 80
-        path: /
-        pathType: Prefix  
-  tls:
-  - hosts:
-    - duy.com
-    secretName: demo-app-tls
+#spec:
+#  rules:
+#  - host: duy.com
+#    http:
+#      paths:
+#      - backend:
+#          service:
+#            name: docker-app-svc
+#            port: 
+#              number: 80
+#        path: /
+#        pathType: Prefix  
+#  tls:
+#  - hosts:
+#    - duy.com
+#    secretName: demo-app-tls
