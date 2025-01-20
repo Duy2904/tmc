@@ -23,7 +23,7 @@ spec:
       namespace: car-serv
     spec:
       containers:
-        - image: elroydevops/car-serv
+        - image: duy290410/devops:100
           imagePullPolicy: Always
           name: car-serv
           ports:
