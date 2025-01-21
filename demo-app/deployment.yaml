@@ -4,7 +4,7 @@ metadata:
   labels:
     app: ecommerce-frontend
   name: ecommerce-frontend-deployment
-  namespace: car-serv
+  namespace: ecommerce-frontend
 spec:
   replicas: 2
   revisionHistoryLimit: 11
@@ -20,7 +20,7 @@ spec:
     metadata:
       labels:
         app: ecommerce-frontend
-      namespace: car-serv
+      namespace: ecommerce-frontend
     spec:
       containers:
         - image: duy290410/devops:100
@@ -35,7 +35,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ecommerce-frontend-service
-  namespace: car-serv
+  namespace: ecommerce-frontend
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:
@@ -55,7 +55,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ecommerce-frontend-ingress
-  namespace: car-serv
+  namespace: ecommerce-frontend
 spec:
   ingressClassName: nginx
   rules:
