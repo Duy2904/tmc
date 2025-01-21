@@ -2,15 +2,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: car-serv
-  name: car-serv-deployment
-  namespace: car-serv
+    app: ecommerce-frontend
+  name: ecommerce-frontend-deployment
+  namespace: ecommerce-frontend
 spec:
   replicas: 2
   revisionHistoryLimit: 11
   selector:
     matchLabels:
-      app: car-serv
+      app: ecommerce-frontend
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -19,13 +19,13 @@ spec:
   template:
     metadata:
       labels:
-        app: car-serv
-      namespace: car-serv
+        app: ecommerce-frontend
+      namespace: ecommerce-frontend
     spec:
       containers:
         - image: duy290410/devops:100
           imagePullPolicy: Always
-          name: car-serv
+          name: ecommerce-frontend
           ports:
             - containerPort: 80
               name: tcp
@@ -34,8 +34,8 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: car-serv-service
-  namespace: car-serv
+  name: ecommerce-frontend-service
+  namespace: ecommerce-frontend
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:
@@ -54,17 +54,17 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: car-serv-ingress
-  namespace: car-serv
+  name: ecommerce-frontend-ingress
+  namespace: ecommerce-frontend
 spec:
   ingressClassName: nginx
   rules:
-    - host: car-serv-onpre.devopsedu.vn
+    - host: ecommerce.devopsedu.vn
       http:
         paths:
           - backend:
               service:
-                name: car-serv-service
+                name: ecommerce-frontend-service
                 port:
                   number: 80
             path: /
