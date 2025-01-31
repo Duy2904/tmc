@@ -23,11 +23,11 @@ spec:
       namespace: ecommerce
     spec:
       containers:
-        - image: duy290410/devops:100
+        - image: duy290410/devops:v101
           imagePullPolicy: Always
           name: ecommerce-backend
           ports:
-            - containerPort: 80
+            - containerPort: 8080
               name: tcp
               protocol: TCP
 ---
@@ -43,9 +43,9 @@ spec:
   ipFamilyPolicy: SingleStack
   ports:
     - name: tcp
-      port: 80
+      port: 8080
       protocol: TCP
-      targetPort: 80
+      targetPort: 8080
   selector:
     app: ecommerce-backend
   sessionAffinity: None
@@ -68,6 +68,6 @@ spec:
               service:
                 name: ecommerce-backend-service
                 port:
-                  number: 80
+                  number: 8080
             path: /
             pathType: Prefix
