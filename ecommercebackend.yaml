@@ -2,15 +2,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: ecommerce-frontend
-  name: ecommerce-frontend-deployment
+    app: ecommerce-backend
+  name: ecommerce-backend-deployment
   namespace: ecommerce
 spec:
   replicas: 2
   revisionHistoryLimit: 11
   selector:
     matchLabels:
-      app: ecommerce-frontend
+      app: ecommerce-backend
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -19,13 +19,13 @@ spec:
   template:
     metadata:
       labels:
-        app: ecommerce-frontend
+        app: ecommerce-backend
       namespace: ecommerce
     spec:
       containers:
         - image: duy290410/devops:100
           imagePullPolicy: Always
-          name: ecommerce-frontend
+          name: ecommerce-backend
           ports:
             - containerPort: 80
               name: tcp
@@ -34,7 +34,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ecommerce-frontend-service
+  name: ecommerce-backend-service
   namespace: ecommerce
 spec:
   internalTrafficPolicy: Cluster
@@ -47,7 +47,7 @@ spec:
       protocol: TCP
       targetPort: 80
   selector:
-    app: ecommerce-frontend
+    app: ecommerce-backend
   sessionAffinity: None
   type: ClusterIP
 ---
@@ -56,17 +56,17 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: traefik 
-  name: ecommerce-frontend-ingress
+  name: ecommerce-backend-ingress
   namespace: ecommerce
 spec:
   #ingressClassName: nginx
   rules:
-    - host: ecommerce.devopsedu.vn
+    - host: api-ecommerce.devopsedu.vn
       http:
         paths:
           - backend:
               service:
-                name: ecommerce-frontend-service
+                name: ecommerce-backend-service
                 port:
                   number: 80
             path: /
