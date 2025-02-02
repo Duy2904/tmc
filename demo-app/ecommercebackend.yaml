@@ -23,7 +23,7 @@ spec:
       namespace: ecommerce
     spec:
       containers:
-        - image: duy290410/devops:101
+        - image: duy290410/devops:102
           imagePullPolicy: Always
           name: ecommerce-backend
           ports:
