@@ -30,6 +30,15 @@ spec:
             - containerPort: 8080
               name: tcp
               protocol: TCP
+          VolumesMounts:
+            - name: application-properties-confi-volume
+              mountPath:/run/src/main/resources/application.properties
+              subPath: application.properties
+      volumes:
+       - name: application-properties-confi-volume
+         configmap:
+           name: ecommerce-backend-application-properties-configmap
+         
 ---
 apiVersion: v1
 kind: Service
