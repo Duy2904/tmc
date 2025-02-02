@@ -30,9 +30,9 @@ spec:
             - containerPort: 8080
               name: tcp
               protocol: TCP
-          VolumesMounts:
+          volumesMounts:
             - name: application-properties-confi-volume
-              mountPath:/run/src/main/resources/application.properties
+              mountPath: /run/src/main/resources/application.properties
               subPath: application.properties
       volumes:
        - name: application-properties-confi-volume
