@@ -6,8 +6,8 @@ metadata:
   name: ecommerce-backend-deployment
   namespace: ecommerce
 spec:
-  replicas: 2
-  revisionHistoryLimit: 11
+  replicas: 1
+  revisionHistoryLimit: 5
   selector:
     matchLabels:
       app: ecommerce-backend
