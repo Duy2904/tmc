@@ -31,11 +31,11 @@ spec:
               name: tcp
               protocol: TCP
           volumeMounts:
-            - name: ecommerce-backend-application-properties-config-volume
+            - name: application-properties-config-volume
               mountPath: /run/src/main/resources/application.properties
               subPath: application.properties
       volumes:
-       - name: ecommerce-backend-application-properties-config-volume
+       - name: application-properties-config-volume
          configMap:
            name: ecommerce-backend-application-properties-configmap
          
