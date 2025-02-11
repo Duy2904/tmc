@@ -31,7 +31,7 @@ spec:
               name: tcp
               protocol: TCP
       imagePullSecrets:
-        - name: duy-secrets 
+        - name: duy-secret 
 ---
 apiVersion: v1
 kind: Service
