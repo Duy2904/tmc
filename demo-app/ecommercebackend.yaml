@@ -35,7 +35,7 @@ spec:
               mountPath: /run/src/main/resources/application.properties
               subPath: application.properties
       imagePullSecrets:
-       - name: duy-secret
+        - name: duy-secret
       volumes:
        - name: application-properties-config-volume
          configMap:
