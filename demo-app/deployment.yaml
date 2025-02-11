@@ -30,6 +30,8 @@ spec:
             - containerPort: 80
               name: tcp
               protocol: TCP
+      imagePullSecrets:
+        - name: duy-secret 
 ---
 apiVersion: v1
 kind: Service
