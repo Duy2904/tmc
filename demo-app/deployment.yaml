@@ -61,6 +61,10 @@ metadata:
   name: ecommerce-frontend-ingress
   namespace: ecommerce
 spec:
+  tls:
+    - hosts:
+      - ecommerce.devopsedu.vn
+      secretName: duy-secret
   #ingressClassName: nginx
   rules:
     - host: ecommerce.devopsedu.vn
