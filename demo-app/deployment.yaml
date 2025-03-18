@@ -65,7 +65,7 @@ spec:
     - hosts:
       - ecommerce.devopsedu.vn
       secretName: duy-secret
-  #ingressClassName: nginx
+  ingressClassName: nginx
   rules:
     - host: ecommerce.devopsedu.vn
       http:
