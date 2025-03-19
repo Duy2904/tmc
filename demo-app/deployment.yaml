@@ -58,6 +58,7 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: traefik 
+    traefik.ingress.kubernetes.io/router.tls: "true"
   name: ecommerce-frontend-ingress
   namespace: ecommerce
 spec:
