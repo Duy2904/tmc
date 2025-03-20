@@ -4,7 +4,7 @@ metadata:
   labels:
     workload.user.cattle.io/workloadselector: apps.deployment-car-serv-car-serv-deployment
   name: car-serv-deployment
-  namespace: car-serv
+  namespace: ecommerce
 spec:
   replicas: 2
   revisionHistoryLimit: 11
@@ -15,7 +15,7 @@ spec:
     metadata:
       labels:
         workload.user.cattle.io/workloadselector: apps.deployment-car-serv-car-serv-deployment
-      namespace: car-serv
+      namespace: ecommerce
     spec:
       containers:
         - image: elroydevops/car-serv
