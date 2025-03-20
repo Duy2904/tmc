@@ -58,14 +58,15 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: traefik 
-    traefik.ingress.kubernetes.io/router.tls: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-production  # Sử dụng ClusterIssuer
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
   name: ecommerce-frontend-ingress
   namespace: ecommerce
 spec:
   tls:
     - hosts:
       - ecommerce.devopsedu.vn
-      secretName: ecommerce-tls-secret
+      secretName: ecommerce1-tls-secret
   #ingressClassName: nginx
   rules:
     - host: ecommerce.devopsedu.vn
