@@ -56,6 +56,10 @@ metadata:
   namespace: ecommerce
 spec:
   #ingressClassName: nginx  # Chỉ sử dụng nếu bạn đang sử dụng Nginx Ingress Controller
+  tls:
+    - hosts:
+      - car-serv-onpre.devopsedu.vn
+      secretName: ecommerce1-tls-secret
   rules:
     - host: car-serv-onpre.devopsedu.vn
       http:
