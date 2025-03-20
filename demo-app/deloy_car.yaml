@@ -58,7 +58,7 @@ spec:
   tls:
     - hosts:
         - car-serv-onpre.devopsedu.vn  # Tên miền của bạn
-      secretName: car-tls  # Tên Secret sẽ được tạo
+      secretName: car-tls-secret  # Tên Secret sẽ được tạo
   rules:
     - host: car-serv-onpre.devopsedu.vn
       http:
