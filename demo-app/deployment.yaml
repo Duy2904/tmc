@@ -65,7 +65,7 @@ metadata:
 spec:
   tls:
     - hosts:
-      - ecommerce.devopsedu.vn
+      - ecommerce1.devopsedu.vn
       secretName: ecommerce1-tls-secret
   #ingressClassName: nginx
   rules:
