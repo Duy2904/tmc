@@ -59,7 +59,7 @@ spec:
   tls:
     - hosts:
       - car-serv-onpre.devopsedu.vn
-      secretName: ecommerce1-tls-secret
+      secretName: car-tls
   rules:
     - host: car-serv-onpre.devopsedu.vn
       http:
