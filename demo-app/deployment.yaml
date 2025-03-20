@@ -69,7 +69,7 @@ spec:
       secretName: ecommerce1-tls-secret
   #ingressClassName: nginx
   rules:
-    - host: ecommerce.devopsedu.vn
+    - host: ecommerce1.devopsedu.vn
       http:
         paths:
           - backend:
