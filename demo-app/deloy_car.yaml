@@ -55,23 +55,21 @@ metadata:
   name: car-serv-ingress
   namespace: ecommerce
 spec:
-  #ingressClassName: nginx  # Chỉ sử dụng nếu bạn đang sử dụng Nginx Ingress Controller
   tls:
     - hosts:
-      - car-serv-onpre.devopsedu.vn
-      secretName: car-tls
+        - car-serv-onpre.devopsedu.vn  # Tên miền của bạn
+      secretName: car-tls  # Tên Secret sẽ được tạo
   rules:
     - host: car-serv-onpre.devopsedu.vn
       http:
         paths:
-          - backend:
+          - path: /
+            pathType: Prefix
+            backend:
               service:
                 name: car-serv1-service
                 port:
                   number: 80
-            path: /
-            pathType: Prefix
-
 
 
             
