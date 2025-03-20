@@ -26,7 +26,26 @@ spec:
               name: tcp
               protocol: TCP
 ---
-
+apiVersion: v1
+kind: Service
+metadata:
+  name: car-serv1-service
+  namespace: ecommerce
+spec:
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+    - name: tcp
+      port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: ecommerce-frontend
+  sessionAffinity: None
+  type: ClusterIP
+---  
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
