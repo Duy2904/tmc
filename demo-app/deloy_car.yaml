@@ -57,10 +57,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - car-serv-onpre.devopsedu.vn  # Tên miền của bạn
+        - duy.tripota.com.vn  # Tên miền của bạn
       secretName: car-tls-secret  # Tên Secret sẽ được tạo
   rules:
-    - host: car-serv-onpre.devopsedu.vn
+    - host: duy.tripota.com.vn
       http:
         paths:
           - path: /
