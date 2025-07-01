@@ -1,42 +1,3 @@
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   labels:
-#     app: masterv2-api-dev
-#   name: masterv2-api-dev
-#   namespace: sit
-# spec:
-#   replicas: 1
-#   selector:
-#     matchLabels:
-#       app: masterv2-api-dev
-#   template:
-#     metadata:
-#       labels:
-#         app: masterv2-api-dev
-#     spec:
-#       containers:
-#       - name : masterv2-api-dev
-#         image: tripotadevacr.azurecr.io/master-api:20
-#         imagePullPolicy: Always        
-#         ports:
-#         - containerPort: 8080
-#         volumeMounts:
-#         - name: config-volume
-#           mountPath: /api/server/Configurations/database.json
-#           subPath: database.json
-#         volumes:
-#         - name: config-volume
-#           configmap: masterv2-api-configmap-dev
-#         resources:
-#           limits:
-#             memory: 1024Mi
-#           requests:
-#             memory: 1024Mi
-#       imagePullSecrets:
-#       - name: tripota-acr-secret
-
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -58,7 +19,7 @@ spec:
       - envFrom:
         - configMapRef:
             name: masterv2-api-configmap-dev
-        image: tripotadevacr.azurecr.io/master-api:
+        image: tripotadevacr.azurecr.io/master-api:20
         imagePullPolicy: Always
         name: masterv2-api-dev
         ports:
