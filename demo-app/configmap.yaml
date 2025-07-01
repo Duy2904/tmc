@@ -1,16 +1,8 @@
-# apiVersion: v1
-# kind: ConfigMap
-# metadata:
-#   name: masterv2-api-configmap-dev
-#   namespace: sit
-# data:
-#  }
-  
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: masterv2-api-configmap-dev
   namespace: sit
 data:
-  Smartstore__DataProvider=PostgreSQL
-  Smartstore__ConnectionString=Server=192.168.1.100;Port=5432;Database=smartstore;User=duy;Password=123
+  #Smartstore__DataProvider=PostgreSQL
+  #Smartstore__ConnectionString=Server=192.168.1.100;Port=5432;Database=smartstore;User=duy;Password=123
