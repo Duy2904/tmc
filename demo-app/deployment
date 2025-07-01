@@ -17,7 +17,7 @@
 #     spec:
 #       containers:
 #       - name : masterv2-api-dev
-#         image: tripotadevacr.azurecr.io/masterv2-api:19185
+#         image: tripotadevacr.azurecr.io/master-api:20
 #         imagePullPolicy: Always        
 #         ports:
 #         - containerPort: 8080
