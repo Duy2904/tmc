@@ -20,7 +20,4 @@ spec:
               number: 8080
         path: /
         pathType: Prefix  
-  tls:
-  - hosts:
-    - check.tripota.com.vn
-    secretName: masterv2-api-dev-tls
+ 
