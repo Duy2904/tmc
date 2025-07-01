@@ -1,81 +1,81 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   labels:
+#     app: masterv2-api-dev
+#   name: masterv2-api-dev
+#   namespace: sit
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: masterv2-api-dev
+#   template:
+#     metadata:
+#       labels:
+#         app: masterv2-api-dev
+#     spec:
+#       containers:
+#       - name : masterv2-api-dev
+#         image: tripotadevacr.azurecr.io/masterv2-api:19185
+#         imagePullPolicy: Always        
+#         ports:
+#         - containerPort: 8080
+#         volumeMounts:
+#         - name: config-volume
+#           mountPath: /api/server/Configurations/database.json
+#           subPath: database.json
+#         volumes:
+#         - name: config-volume
+#           configmap: masterv2-api-configmap-dev
+#         resources:
+#           limits:
+#             memory: 1024Mi
+#           requests:
+#             memory: 1024Mi
+#       imagePullSecrets:
+#       - name: tripota-acr-secret
+
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: ecommerce-frontend
-  name: ecommerce-frontend-deployment
-  namespace: ecommerce
+    app: masterv2-api-dev
+  name: masterv2-api-dev
+  namespace: sit
 spec:
-  replicas: 2
-  revisionHistoryLimit: 11
+  replicas: 1
   selector:
     matchLabels:
-      app: ecommerce-frontend
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
+      app: masterv2-api-dev
   template:
     metadata:
       labels:
-        app: ecommerce-frontend
-      namespace: ecommerce
+        app: masterv2-api-dev
     spec:
       containers:
-        - image: duy290410/devops:100
-          imagePullPolicy: Always
-          name: ecommerce-frontend
-          ports:
-            - containerPort: 80
-              name: tcp
-              protocol: TCP
+      - envFrom:
+        - configMapRef:
+            name: masterv2-api-configmap-dev
+        image: tripotadevacr.azurecr.io/master-api:
+        imagePullPolicy: Always
+        name: masterv2-api-dev
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            memory: 1024Mi
+          requests:
+            memory: 1024Mi
+        volumeMounts:
+            - name: appdata
+              mountPath: /app/App_Data/Tenants
+      volumes:
+        - name: appdata
+          hostPath:
+            path: /home/devops/docker  # Thư mục trên host chứa dữ liệu Tenants
+            type: DirectoryOrCreate
       imagePullSecrets:
-        - name: duy-secret 
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: ecommerce-frontend-service
-  namespace: ecommerce
-spec:
-  internalTrafficPolicy: Cluster
-  ipFamilies:
-    - IPv4
-  ipFamilyPolicy: SingleStack
-  ports:
-    - name: tcp
-      port: 80
-      protocol: TCP
-      targetPort: 80
-  selector:
-    app: ecommerce-frontend
-  sessionAffinity: None
-  type: ClusterIP
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  annotations:
-    kubernetes.io/ingress.class: traefik 
-    cert-manager.io/cluster-issuer: letsencrypt-production  # Sử dụng ClusterIssuer
-   # nginx.ingress.kubernetes.io/ssl-redirect: "true"
-  name: ecommerce-frontend-ingress
-  namespace: ecommerce
-spec:
-  tls:
-    - hosts:
-      - ecommerce.devopsedu.vn
-      secretName: ecommerce1-tls-secret
-  #ingressClassName: nginx
-  rules:
-    - host: ecommerce.devopsedu.vn
-      http:
-        paths:
-          - backend:
-              service:
-                name: ecommerce-frontend-service
-                port:
-                  number: 80
-            path: /
-            pathType: Prefix
+      - name: tripota-acr-secret
+      
