@@ -4,8 +4,8 @@ metadata:
   name: masterv2-api-configmap-dev
   namespace: sit
 data:
-  #Smartstore__DataProvider=PostgreSQL
-  #Smartstore__ConnectionString=Server=172.188.49.222;Port=5432;Database=tripota_masterdata_frontend;User=tripota_masterdata_frontend;Password=5VTK7dqL662e
+  Smartstore__DataProvider=PostgreSQL
+  Smartstore__ConnectionString=Server=172.188.49.222;Port=5432;Database=tripota_masterdata_frontend;User=tripota_masterdata_frontend;Password=5VTK7dqL662e
 
 
 
