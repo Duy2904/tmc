@@ -4,5 +4,5 @@ metadata:
   name: masterv2-api-configmap-dev
   namespace: sit
 data:
-  DataProvider: PostgreSql
-  DataConnectionString: Host=172.188.16.67:5433;Database=masterdata;Username=tripota_master_frontend;Password=5VTK7dqL662e;Pooling=True;Minimum Pool Size=1;Maximum Pool Size=1024;Multiplexing=False
+  #DataProvider: PostgreSql
+  #DataConnectionString: Host=172.188.16.67:5433;Database=masterdata;Username=tripota_master_frontend;Password=5VTK7dqL662e;Pooling=True;Minimum Pool Size=1;Maximum Pool Size=1024;Multiplexing=False
